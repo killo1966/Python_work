@@ -1,0 +1,49 @@
+#%%
+# 7-9 Ya no hay pastrami: Usando lalista pedidos_bocadillos del ejercicio 7-8
+# asegúrese de que el bocadillo de 'pastrami aparezca en la lista al menos tres veces.
+# Añada código al principio del programa para imprimir un mensaje diciendo que no queda
+# pastrami y use un bucle while para eliminar todas las apariciones de  'pastrami'
+# en pedidos_bocadillos. Asegúrese de que no pasa ningún bocadillo de pastrami a la
+# lista bocadillos_terminados.
+
+pedidos_bocadillos = ['pastrami',
+                      'atun_con_tomate',
+                      'queso_con_anchoas',
+                      'pastrami',
+                      'jamon_serrano',
+                      'chorizo',
+                      'pastrami',
+                      'tortilla_de_patatas']
+
+# Se crea la lista de bocadillos terminados
+bocadillos_terminados = []
+print(f"\n ------ Nuestra lista de bocadillos ---")
+print(f"{pedidos_bocadillos}")
+
+# Aviso de que no hay mas 'pastrami'
+prompt = "\nSentimos anunciarles que el bocadillo de 'pastrami' está agotado."
+prompt += "\nDisculpen las molestias. Repondremos el bocadillo lo antes posible\n"
+message = prompt
+print(message)
+
+while 'pastrami' in pedidos_bocadillos:
+    # Se elimina todas las referencias de 'pastrami' de pedidos_bocadillos
+    pedidos_bocadillos.remove('pastrami')
+
+    # imprime la nueva lista de pedidos_bocadillos mientras no hay 'pastrami'
+print(f"A falta de 'pastrami, pueden elegir entre los siguientes bocadillos:")
+print(pedidos_bocadillos)
+
+while pedidos_bocadillos:
+    bocadillos_en_curso = pedidos_bocadillos.pop()
+    print(f"Su bocadillo de {bocadillos_en_curso},  ha sido preparado")
+
+    # Añadimos los bocadillos encurso a la lista de bocadillos terminados
+    bocadillos_terminados.append(bocadillos_en_curso)
+
+# Se informa de los bocadillos que estan terminados
+print(f"\n\tLos bocadillos estan terminados, elijan sus favoritos!!!\n")
+for bocadillo in bocadillos_terminados:
+    print(f"Bocadillo de: {bocadillo}")
+
+
